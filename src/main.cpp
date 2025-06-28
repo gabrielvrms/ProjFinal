@@ -2,7 +2,7 @@
 
 DistanceAlertSystem alertSystem;
 
-void setup() {
+void setup() {  
     alertSystem.initialize();
 }
 

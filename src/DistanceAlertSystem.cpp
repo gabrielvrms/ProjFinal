@@ -15,14 +15,14 @@ void DistanceAlertSystem::initialize() {
 }
 
 void DistanceAlertSystem::run() {
-    if (millis() - lastMeasurement >= measureInterval) {
-        lastMeasurement = millis();
+    if (millis() - lastMeasurement >= measureInterval) { // Check if it's time to measure distance
+        lastMeasurement = millis(); // Update the last measurement time
         
-        float distance = sensor.measureDistance();
+        float distance = sensor.measureDistance(); // Measure distance from the ultrasonic sensor
         
-        if (sensor.isDistanceValid(distance)) {
-            leds.update(distance);
-            buzzer.update(distance);
+        if (sensor.isDistanceValid(distance)) { // Check if the distance is within valid range
+            leds.update(distance); // Update LEDs based on distance
+            buzzer.update(distance); // Update buzzer based on distance
         } else {
             Serial.println("Invalid distance reading!");
         }
